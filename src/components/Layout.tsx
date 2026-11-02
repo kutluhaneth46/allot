@@ -3,9 +3,9 @@ import type { ReactNode } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { ConnectKitButton } from 'connectkit'
 import { useAccount, useSwitchChain } from 'wagmi'
-import { ArrowUpRight, Check, ChevronDown, Github, Wallet } from 'lucide-react'
+import { ArrowUpRight, Check, ChevronDown, Github, ExternalLink, Wallet } from 'lucide-react'
 import clsx from 'clsx'
-import { ARC_LINKS, CHAIN_ID, GITHUB_URL, IS_MAINNET, NETWORKS, NETWORK_LIST } from '@/lib/chains'
+import { ARC_LINKS, CHAIN_ID, GITHUB_URL, IS_MAINNET, NETWORKS, NETWORK_LIST, PORTFOLIO_URL, VAULT_ADDRESS, X_URL, explorerAddress } from '@/lib/chains'
 import { useNetwork } from './NetworkProvider'
 import { Button } from './ui'
 
@@ -121,7 +121,12 @@ export function ConnectButton({ compact }: { compact?: boolean }) {
   return (
     <ConnectKitButton.Custom>
       {({ isConnected, show, truncatedAddress, ensName }) => (
-        <Button size={compact ? 'sm' : 'md'} variant={isConnected ? 'secondary' : 'primary'} onClick={show}>
+        <Button
+          size={compact ? 'sm' : 'md'}
+          variant={isConnected ? 'secondary' : 'primary'}
+          onClick={show}
+          aria-label={isConnected ? `Wallet ${ensName ?? truncatedAddress}` : 'Connect wallet'}
+        >
           <Wallet className="h-4 w-4" aria-hidden />
           {isConnected ? (ensName ?? truncatedAddress) : 'Connect wallet'}
           {isConnected && <ChevronDown className="h-3.5 w-3.5 opacity-60" aria-hidden />}
@@ -223,14 +228,37 @@ export function Footer() {
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--subtle)]">Project</p>
           <div>
             <FooterLink href={GITHUB_URL}>
-              <Github className="h-4 w-4" /> GitHub repo
+              <Github className="h-4 w-4" aria-hidden /> GitHub repo
             </FooterLink>
+          </div>
+          <div>
+            <FooterLink href={X_URL}>X @kutluhaneth</FooterLink>
+          </div>
+          <div>
+            <FooterLink href={PORTFOLIO_URL}>kutluhaneth.com</FooterLink>
           </div>
           <div><FooterLink href="https://studio.arc.io">Built in Arc Studio</FooterLink></div>
         </div>
       </div>
       <div className="border-t border-white/8 px-4 py-5 pb-20 text-center text-xs text-[var(--subtle)] sm:px-6">
-        Running on {NETWORKS[CHAIN_ID].label}. {IS_MAINNET ? 'Real USDC.' : 'Test funds only.'} Allot is experimental software and has not had an independent audit.
+        <p>
+          Running on {NETWORKS[CHAIN_ID].label}, chain {CHAIN_ID}.{' '}
+          {IS_MAINNET ? 'Real USDC.' : 'Test funds only.'} Allot is experimental software and has not had an independent audit.
+        </p>
+        {VAULT_ADDRESS ? (
+          <p className="mt-2">
+            <span>Vault: </span>
+            <a
+              className="mono inline-flex items-center gap-1 underline-offset-2 transition hover:text-white hover:underline"
+              href={explorerAddress(VAULT_ADDRESS)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {VAULT_ADDRESS.slice(0, 6)}…{VAULT_ADDRESS.slice(-4)}
+              <ExternalLink className="h-3 w-3 opacity-60" aria-hidden />
+            </a>
+          </p>
+        ) : null}
       </div>
     </footer>
   )

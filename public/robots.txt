@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://allot.kutluhaneth.com/sitemap.xml

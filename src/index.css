@@ -111,6 +111,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   box-shadow: 0 0 0 3px rgba(110, 168, 255, 0.18);
 }
 
+a:focus-visible {
+  outline: 2px solid rgba(110, 168, 255, 0.7);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .glass-hover, .glass-hover:hover { transition: none; transform: none; }

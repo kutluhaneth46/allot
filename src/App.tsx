@@ -8,6 +8,7 @@ import Merchant from '@/pages/Merchant'
 import Pay from '@/pages/Pay'
 import ReceiptPage from '@/pages/ReceiptPage'
 import Recipient from '@/pages/Recipient'
+import NotFound from '@/pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -29,7 +30,7 @@ export default function App() {
           <Route path="merchant" element={<Merchant />} />
           <Route path="pay" element={<Pay />} />
           <Route path="receipt/:txHash" element={<ReceiptPage />} />
-          <Route path="*" element={<Landing />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </NetworkProvider>

@@ -4,6 +4,8 @@
 
 🌐 **Live app:** https://allot.kutluhaneth.com
 
+![Allot open graph preview](docs/screenshot.png)
+
 ## What it does
 
 Allot lets a funder lock USDC for a recipient who can only spend it at approved merchants for a stated purpose. Payments happen with a merchant QR code and an EIP-712 `Spend` authorization signed by the recipient. Unspent funds can be reclaimed after expiry, or returned earlier when the funder closes the allowance.
@@ -30,7 +32,7 @@ Allot was built in [Arc Studio](https://studio.arc.io). The `AllotVault` contrac
 
 ## Deployments
 
-### Arc Mainnet, chain ID 5042
+### Arc mainnet, chain ID 5042
 
 | | |
 |---|---|
@@ -77,7 +79,7 @@ cp .env.example .env
 bun run dev
 ```
 
-### Build and type-check
+### Build and type check
 
 ```bash
 bun run typecheck

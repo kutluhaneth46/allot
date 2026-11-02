@@ -1,0 +1,25 @@
+{
+  "name": "Allot",
+  "short_name": "Allot",
+  "description": "Purpose restricted USDC allowances on Arc mainnet. Lock a budget, approve merchants, and pay by QR.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a1426",
+  "theme_color": "#0a1426",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

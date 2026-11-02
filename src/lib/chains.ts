@@ -20,7 +20,7 @@ export interface NetworkConfig {
 export const NETWORKS: Record<number, NetworkConfig> = {
   [arc.id]: {
     chain: arc,
-    label: 'Arc',
+    label: 'Arc mainnet',
     isMainnet: true,
     vault: readAddress(env.VITE_ALLOT_VAULT_ADDRESS_MAINNET),
     fromBlock: BigInt(env.VITE_ALLOT_VAULT_DEPLOY_BLOCK_MAINNET ?? '0'),
@@ -99,5 +99,9 @@ export const ARC_LINKS = {
   },
 }
 
-/** Set VITE_GITHUB_REPO_URL to the Allot repository. Falls back to the Circle GitHub org. */
-export const GITHUB_URL = env.VITE_GITHUB_REPO_URL || 'https://github.com/circlefin'
+export const SITE_URL = 'https://allot.kutluhaneth.com'
+export const PORTFOLIO_URL = 'https://kutluhaneth.com'
+export const X_URL = 'https://x.com/kutluhaneth'
+
+/** Set VITE_GITHUB_REPO_URL to override. Defaults to the public Allot repository. */
+export const GITHUB_URL = env.VITE_GITHUB_REPO_URL || 'https://github.com/kutluhaneth46/allot'

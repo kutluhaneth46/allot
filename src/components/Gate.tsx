@@ -16,7 +16,7 @@ export function Gate({ children, reason }: { children: ReactNode; reason: string
         <div>
           <h3 className="font-semibold">Vault address not configured</h3>
           <p className="mt-1 text-sm text-[var(--muted)]">
-            Set <span className="mono">VITE_ALLOT_VAULT_ADDRESS_TESTNET</span> in <span className="mono">.env</span> and restart the dev server.
+            Set <span className="mono">VITE_ALLOT_VAULT_ADDRESS_MAINNET</span> or <span className="mono">VITE_ALLOT_VAULT_ADDRESS_TESTNET</span> in <span className="mono">.env</span> and restart the dev server.
           </p>
         </div>
       </Card>
