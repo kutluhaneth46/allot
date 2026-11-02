@@ -4,5 +4,10 @@
   "installCommand": "bun install",
   "buildCommand": "bun run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/((?!assets/|og\\.png|favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
